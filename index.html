@@ -57,6 +57,7 @@
             box-shadow: 0 0 50px rgba(255, 0, 128, 0.3);
             z-index: 10;
             position: relative;
+            margin: 40px 20px;
         }
 
         .logo {
@@ -91,7 +92,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s;
-            margin: 30px 0;
+            margin: 30px 0 10px 0;
             cursor: pointer;
         }
 
@@ -122,7 +123,7 @@
             border: 1px solid #ff0080;
             border-radius: 10px;
             padding: 25px;
-            margin: 30px 0;
+            margin: 20px 0 30px 0;
         }
 
         .features {
@@ -222,11 +223,11 @@
                 padding: 20px;
                 margin: 20px;
             }
-            
+
             h1 {
                 font-size: 28px;
             }
-            
+
             .logo {
                 font-size: 36px;
             }
@@ -239,15 +240,18 @@
 </head>
 <body>
     <div class="stars" id="stars"></div>
-    
+
     <div class="container">
         <div class="logo">🛡️ AEGIS SENTINEL</div>
         <h1>Email Phishing Detector</h1>
-        
+
+        <!-- Download button – works on Vercel as long as aegis-email-checker.zip is in the same folder -->
         <a href="aegis-email-checker.zip" class="download-btn" download>
             🔍 Download Extension (28KB)
         </a>
-        
+
+        <p id="device-hint" style="font-size: 13px; opacity: 0.8; margin-top: 8px;"></p>
+
         <div class="extension-info">
             <h3 style="color: #ffaa00; margin-bottom: 15px;">⚡ Phishing or Real Checker</h3>
             <p style="opacity: 0.9; line-height: 1.6;">
@@ -281,63 +285,73 @@
         <div class="install-section">
             <!-- TEMPORARY INSTALL STEPS -->
             <div class="install-steps">
-                <h3 class="section-title">⚙️ TEMPORARY INSTALL (Developer Mode)</h3>
-                
+                <h3 class="section-title">⚙️ DESKTOP INSTALL (Developer Mode)</h3>
+
                 <div class="step">
                     <div class="step-number">1</div>
-                    <p><strong>Download & Extract:</strong> Unzip <code>aegis-sentinel.zip</code></p>
+                    <p><strong>Download & Extract:</strong> Download using the button above and unzip <code>aegis-email-checker.zip</code>.</p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">2</div>
-                    <p><strong>Enable Developer Mode:</strong><br>Go to <code>chrome://extensions/</code> → Toggle "Developer mode" (top right)</p>
+                    <p><strong>Enable Developer Mode:</strong><br>
+                        Open <code>chrome://extensions/</code> (or <code>edge://extensions/</code>) → Toggle <strong>"Developer mode"</strong> (top right).
+                    </p>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">3</div>
-                    <p><strong>Load Extension:</strong><br>Click "Load unpacked" → Select extracted folder</p>
+                    <p><strong>Load Extension:</strong><br>
+                        Click <strong>"Load unpacked"</strong> → Select the extracted folder (the one containing <code>manifest.json</code>).
+                    </p>
                 </div>
-                
+
                 <p style="font-size: 12px; opacity: 0.7; margin-top: 15px;">
-                    🔄 Resets on browser restart
+                    🔄 Extension stays until you remove it from the Extensions page.
                 </p>
             </div>
 
             <!-- PUBLISH TO CHROME WEB STORE -->
             <div class="publish-steps">
-                <h3 class="section-title">⭐ PUBLISH TO WEB STORE (Permanent)</h3>
-                
+                <h3 class="section-title">⭐ PUBLISH TO WEB STORE (Optional, Permanent)</h3>
+
                 <div class="step premium">
                     <div class="step-number">1</div>
-                    <p><strong>Get Developer Account:</strong><br><a href="https://chrome.google.com/webstore/devconsole" target="_blank" style="color: #ffaa00;">Chrome Web Store</a> ($5 one-time)</p>
+                    <p><strong>Get Developer Account:</strong><br>
+                        Visit <a href="https://chrome.google.com/webstore/devconsole" target="_blank" style="color: #ffaa00;">Chrome Web Store Developer</a> ($5 one-time).
+                    </p>
                 </div>
-                
+
                 <div class="step premium">
                     <div class="step-number">2</div>
-                    <p><strong>Prepare Files:</strong><br>ZIP your extension folder (manifest.json required)</p>
+                    <p><strong>Prepare Files:</strong><br>ZIP your extension folder (must include <code>manifest.json</code>).</p>
                     <div class="code-block">
 manifest.json<br>icon-48.png<br>popup.html<br>popup.js
                     </div>
                 </div>
-                
+
                 <div class="step premium">
                     <div class="step-number">3</div>
-                    <p><strong>Upload & Submit:</strong><br>Developer Console → New Item → Upload → Submit for review (1-7 days)</p>
+                    <p><strong>Upload & Submit:</strong><br>
+                        Developer Console → <strong>New Item</strong> → Upload ZIP → Submit for review (1–7 days).
+                    </p>
                 </div>
-                
+
                 <div class="step premium">
                     <div class="step-number">4</div>
-                    <p><strong>Go Live:</strong><br>Approved → Publish → 100% of users can install!</p>
+                    <p><strong>Go Live:</strong><br>
+                        Once approved → Publish → Users can install directly from the Chrome Web Store.
+                    </p>
                 </div>
-                
+
                 <p style="font-size: 12px; opacity: 0.7; margin-top: 15px;">
-                    ✅ Permanent • No developer mode • Official store
+                    ✅ Permanent • No Developer Mode • Official listing
                 </p>
             </div>
         </div>
 
         <p style="margin-top: 30px; opacity: 0.7; font-size: 14px;">
-            🔒 Chrome/Edge supported. Firefox: <code>about:debugging</code> → Load Temporary Add-on
+            🔒 Tested on Chrome/Edge (desktop). Firefox users: <code>about:debugging</code> → Load Temporary Add-on → select <code>manifest.json</code>.
         </p>
     </div>
 
@@ -357,24 +371,41 @@ manifest.json<br>icon-48.png<br>popup.html<br>popup.js
             }
         }
 
+        // Simple device detection
+        function isMobile() {
+            return /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+        }
+
         // Download counter
         let downloads = 0;
-        document.querySelector('.download-btn').addEventListener('click', function() {
-            downloads++;
-            console.log(`Aegis Sentinel downloaded ${downloads} times! 🛡️`);
-            
-            // Show download confirmation
-            this.textContent = '✅ DOWNLOAD STARTED!';
-            setTimeout(() => {
-                this.textContent = '🔍 Download Extension (28KB)';
-            }, 2000);
-        });
 
-        createStars();
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadBtn = document.querySelector('.download-btn');
+            const deviceHint = document.getElementById('device-hint');
+
+            if (isMobile()) {
+                deviceHint.textContent = '📱 You are on mobile. You can download the ZIP, but browser extensions are only installable on desktop browsers.';
+            } else {
+                deviceHint.textContent = '💻 You are on desktop. Follow the steps below to install the extension in Chrome/Edge/Brave.';
+            }
+
+            downloadBtn.addEventListener('click', function() {
+                downloads++;
+                console.log(`Aegis Sentinel downloaded ${downloads} times! 🛡️`);
+
+                // Show download confirmation
+                this.textContent = '✅ DOWNLOAD STARTED!';
+                setTimeout(() => {
+                    this.textContent = '🔍 Download Extension (28KB)';
+                }, 2000);
+            });
+
+            createStars();
+        });
 
         // Animate elements on scroll
         window.addEventListener('scroll', () => {
-            document.querySelectorAll('.feature, .step').forEach((el, index) => {
+            document.querySelectorAll('.feature, .step').forEach((el) => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight) {
                     el.style.opacity = '1';
